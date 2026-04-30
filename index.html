@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Print & Copy - Contact Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pyidaungsu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #e67e22;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .profile {
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background-color: white;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .marquee-bar {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            margin-bottom: 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: moveMarquee 20s linear infinite;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes moveMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            padding: 0 10px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #000, #555, #000);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            aspect-ratio: 1 / 0.9;
+        }
+
+        /* Call Us Card - အောက်ဆုံးမှာ အကွက်ရှည် */
+        .call-card {
+            grid-column: 1 / -1; /* တစ်ကြောင်းလုံး နေရာယူစေခြင်း */
+            aspect-ratio: auto;
+            flex-direction: row; /* Icon နဲ့ စာကို ဘေးတိုက်ထားခြင်း */
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-card i {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .call-card i {
+            margin-bottom: 0;
+            font-size: 28px;
+        }
+
+        /* Brand Colors */
+        .fa-telegram { color: #0088cc; }
+        .fa-viber { color: #7360f2; }
+        .fa-facebook-messenger { color: #006aff; }
+        .fa-instagram { color: #e1306c; }
+        .fa-tiktok { color: #000000; }
+        .fa-envelope { color: #ea4335; }
+        .fa-phone-alt { color: #34a853; }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .card-sub {
+            font-size: 10px;
+            color: #777;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .footer-note {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .address-text {
+            margin-bottom: 10px;
+            font-size: 11px;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="Logos.jpg" alt="Min Print & Copy Logo">
+            </div>
+            
+            <h1>MIN PRINT & COPY</h1>
+
+            <div class="marquee-bar">
+                <div class="marquee-content">
+                    🧡 Welcome to Min Print & Copy🖨️: 🎉"Dear Valued Customers, you can send the photos and files you wish to print through the links shown below."🎉 Thank you so much for choosing us!🧡
+                </div>
+            </div>
+            
+            <p class="description">
+                ချစ်ခင်ရပါသော Customer များခင်ဗျာ၊<br>
+                လူကြီးမင်းတို့ ပေးပို့လိုသည့် ပုံများ၊ ဖိုင်များကို<br>
+                အောက်ဖော်ပြပါ Links များမှတစ်ဆင့်<br>
+                ပေးပို့နိုင်ပါတယ်ခင်ဗျာ။
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <a href="https://t.me/minhtetthar428" class="contact-card" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span class="card-title">Telegram</span>
+                <span class="card-sub">@minhtetthar428</span>
+            </a>
+
+            <a href="https://msng.link/o/?959964563388=vi" class="contact-card" target="_blank">
+                <i class="fab fa-viber"></i>
+                <span class="card-title">Viber</span>
+                <span class="card-sub">(Need VPN)</span>
+            </a>
+
+            <a href="https://m.me/min.htet.thar.886065" class="contact-card" target="_blank">
+                <i class="fab fa-facebook-messenger"></i>
+                <span class="card-title">Messenger</span>
+                <span class="card-sub">(Need VPN)</span>
+            </a>
+
+            <a href="https://www.instagram.com/minhtetthar428" class="contact-card" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span class="card-title">Instagram</span>
+                <span class="card-sub">(Need VPN)</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@min.printcopy?_r=1&_t=ZS-95yP5V6BgMn" class="contact-card" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span class="card-title">TikTok</span>
+                <span class="card-sub">@min.printcopy</span>
+            </a>
+
+            <a href="mailto:paannpyoelaat428@gmail.com" class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <span class="card-title">Email</span>
+                <span class="card-sub">Send Mail</span>
+            </a>
+
+            <a href="tel:+959964563388" class="contact-card call-card">
+                <i class="fas fa-phone-alt"></i>
+                <div style="text-align: left;">
+                    <span class="card-title">Call Us</span><br>
+                    <span class="card-sub">09 964 563 388</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer-note">
+            <div class="address-text">
+                မေခဆောင်(1B)၊ သမိုင်းကောလိပ်လမ်း၊ လှိုင်မြို့နယ်
+            </div>
+            © 2026 Min Print & Copy
+        </div>
+    </div>
+
+</body>
+</html>
